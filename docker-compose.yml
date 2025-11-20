@@ -1,0 +1,32 @@
+# Development Docker Compose for Zephyr IPMI
+# Single container - builds from local source
+#
+# Usage:
+#   docker compose up -d
+
+services:
+  zephyr-ipmi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: zephyr-ipmi
+    restart: unless-stopped
+    environment:
+      - ZEPHYR_SECRET_KEY=${ZEPHYR_SECRET_KEY:-dev-secret-key}
+      - ZEPHYR_ENCRYPTION_KEY=${ZEPHYR_ENCRYPTION_KEY:-dev-encryption-key}
+      - ZEPHYR_SSL_ENABLED=true
+      - ZEPHYR_PORT=8443
+      - ZEPHYR_DATABASE_URL=sqlite+aiosqlite:///./data/zephyr.db
+    volumes:
+      # Persist database and data
+      - ./data:/app/data
+      # SSL certificates (generate or mount)
+      - ./data/certs:/app/certs
+    ports:
+      - "8443:8443"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "https://localhost:8443/api/auth/status"]
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 3

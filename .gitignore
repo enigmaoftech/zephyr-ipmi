@@ -1,0 +1,81 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+dist/
+build/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.js
+dist/
+build/
+.vite/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment files
+.env
+.env.local
+.env.*.local
+*.env
+
+# Logs
+*.log
+*.log.*
+logs/
+
+# Database
+*.db
+*.db-journal
+backend/data/
+*.sqlite
+*.sqlite3
+
+# SSL certificates (generated or mounted)
+backend/certs/*.crt
+backend/certs/*.key
+frontend/certs/*.crt
+frontend/certs/*.key
+*.pem
+
+# Test data
+test-docker/
+*.pyc
+.pytest_cache/
+
+# Deployment artifacts
+zephyr-ipmi.tar.gz
+cleanup.sh
+package.sh
+
+# Production data
+data/
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+
