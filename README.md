@@ -90,10 +90,3 @@ docker compose -f docker-compose.prod.yml up -d
 - Network access to your IPMI-enabled servers (Supermicro, Dell iDRAC, HP iLO)
 - `ipmitool` (included in Docker image)
 
-## License
-
-[Add your license here]
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
